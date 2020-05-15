@@ -65,10 +65,10 @@ async def test_double_synchronized_data_file_backtesting():
     asyncio.get_event_loop().set_exception_handler(error_container.exception_handler)
     previous_backtesting = await run_independent_backtesting([DATA_FILES[BACKTESTING_SYMBOLS[0]],
                                                               DATA_FILES[BACKTESTING_SYMBOLS[1]]],
-                                                             timeout=40)
+                                                             timeout=120)
     current_backtesting = await run_independent_backtesting([DATA_FILES[BACKTESTING_SYMBOLS[0]],
                                                              DATA_FILES[BACKTESTING_SYMBOLS[1]]],
-                                                            timeout=40)
+                                                            timeout=120)
 
     await _check_backtesting_results(previous_backtesting, current_backtesting, error_container)
 
